@@ -9,14 +9,11 @@
 [![Version](https://img.shields.io/badge/version-0.5.0-blue?style=flat-square)](https://github.com/HassanAlsheikh/ArabicTeleprompter/releases)
 [![Tauri](https://img.shields.io/badge/Tauri-2.0-24C8D8?style=flat-square&logo=tauri&logoColor=white)](https://tauri.app)
 [![SvelteKit](https://img.shields.io/badge/SvelteKit-2.x-FF3E00?style=flat-square&logo=svelte&logoColor=white)](https://kit.svelte.dev)
-[![Platform](https://img.shields.io/badge/platform-macOS%20·%20Windows%20·%20Linux-555?style=flat-square)](#building-from-source)
+[![Platform](https://img.shields.io/badge/platform-macOS%20·%20Windows%20·%20Linux-555?style=flat-square)](#install)
+[![Homebrew](https://img.shields.io/badge/Homebrew-coming_soon-FBB040?style=flat-square&logo=homebrew&logoColor=white)](#install)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 
 </div>
-
----
-
-![Arabic Teleprompter — editor view](docs/screenshots/editor.png)
 
 ---
 
@@ -48,28 +45,7 @@ Write or import your script, configure your display settings, and roll. The text
 
 ## Screenshots
 
-<table>
-  <tr>
-    <td align="center">
-      <img src="docs/screenshots/editor.png" alt="Script Editor" width="460" />
-      <br /><sub><b>Script Editor</b> — write and format your script before going live</sub>
-    </td>
-    <td align="center">
-      <img src="docs/screenshots/teleprompter.png" alt="Teleprompter View" width="460" />
-      <br /><sub><b>Teleprompter View</b> — full-screen, distraction-free scrolling</sub>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <img src="docs/screenshots/settings.png" alt="Settings Panel" width="460" />
-      <br /><sub><b>Settings Panel</b> — font, speed, line height, margins</sub>
-    </td>
-    <td align="center">
-      <img src="docs/screenshots/dual-screen.png" alt="Dual-Screen Talent Display" width="460" />
-      <br /><sub><b>Dual-Screen Mode</b> — clean display for the talent on a second monitor</sub>
-    </td>
-  </tr>
-</table>
+> 📸 Screenshots coming soon. To contribute, see [`docs/screenshots/README.md`](docs/screenshots/README.md).
 
 ---
 
@@ -126,16 +102,42 @@ Click the **monitor icon** in the control bar. A full-screen window opens on you
 
 ---
 
+## Install
+
+### Pre-built releases
+
+Download the latest installer for your platform from [**GitHub Releases**](https://github.com/HassanAlsheikh/ArabicTeleprompter/releases).
+
+| Platform | File |
+|---|---|
+| macOS | `.dmg` |
+| Windows | `.exe` (NSIS) or `.msi` |
+| Linux | `.deb`, `.AppImage`, or `.rpm` |
+
+### Homebrew (coming soon)
+
+```bash
+brew install --cask arabic-teleprompter
+```
+
+> Homebrew distribution is planned after the initial public release. Star the repo to be notified.
+
+### Build from source
+
+See [Building from Source](#building-from-source) below.
+
+---
+
 ## Building from Source
 
-Arabic Teleprompter is a [Tauri 2.0](https://tauri.app) app. You need Node.js and Rust.
+Arabic Teleprompter is a [Tauri 2.0](https://tauri.app) app. You need a JavaScript runtime and Rust.
 
 ### Prerequisites
 
 | Tool | Version | Install |
 |---|---|---|
-| Node.js | 20 + | [nodejs.org](https://nodejs.org) |
-| pnpm | 9 + | `npm install -g pnpm` |
+| Bun | 1.1 + | [bun.sh](https://bun.sh) |
+| — or pnpm | 9 + | `npm install -g pnpm` |
 | Rust | stable | [rustup.rs](https://rustup.rs) |
 | Tauri system deps | — | [tauri.app/start/prerequisites](https://tauri.app/start/prerequisites/) |
 
@@ -150,12 +152,23 @@ xcode-select --install
 ```bash
 git clone https://github.com/HassanAlsheikh/ArabicTeleprompter.git
 cd ArabicTeleprompter
+```
+
+```bash
+# with bun (recommended)
+bun install
+
+# or with pnpm
 pnpm install
 ```
 
 ### Run in development
 
 ```bash
+# with bun
+bun run tauri dev
+
+# or with pnpm
 pnpm tauri dev
 ```
 
@@ -164,18 +177,16 @@ This starts the Vite dev server on `localhost:1420` and opens the native desktop
 ### Build for distribution
 
 ```bash
+# with bun
+bun run tauri build
+
+# or with pnpm
 pnpm tauri build
 ```
 
-Bundled outputs land in `src-tauri/target/release/bundle/`:
+Bundled outputs land in `src-tauri/target/release/bundle/`.
 
-| Platform | Output formats |
-|---|---|
-| macOS | `.dmg`, `.app` |
-| Windows | `.exe` (NSIS), `.msi` |
-| Linux | `.deb`, `.AppImage`, `.rpm` |
-
-The app is fully standalone. No server, no internet connection required at runtime.
+The app is fully standalone — no server, no internet connection required at runtime.
 
 ---
 
@@ -184,7 +195,7 @@ The app is fully standalone. No server, no internet connection required at runti
 - **[Tauri 2.0](https://tauri.app)** — Rust-powered native shell, tiny install footprint
 - **[SvelteKit 2](https://kit.svelte.dev) + [Svelte 5](https://svelte.dev)** — reactive UI with runes
 - **[TipTap 3](https://tiptap.dev)** — rich text editor with custom Arabic extensions
-- **[Vite 7](https://vitejs.dev)** — fast dev and build tooling
+- **[Vite 7](https://vitejs.dev)** — fast build tooling
 - **Arabic fonts** via [@fontsource](https://fontsource.org): Amiri, Cairo, Noto Naskh Arabic, Tajawal
 
 ---
