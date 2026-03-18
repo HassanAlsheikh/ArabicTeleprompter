@@ -1,153 +1,153 @@
 <div align="center">
 
-<img src="src-tauri/icons/256x256.png" alt="Arabic Teleprompter" width="120" />
+<img src="src-tauri/icons/256x256.png" alt="التلقين العربي" width="120" />
 
 # التلقين العربي · Arabic Teleprompter
 
-**Professional teleprompter built for Arabic content — RTL-native, broadcast-ready.**
+**تلقين احترافي مبني للمحتوى العربي — عربي أصيل، جاهز للبث.**
 
 [![Version](https://img.shields.io/badge/version-0.5.0-blue?style=flat-square)](https://github.com/HassanAlsheikh/ArabicTeleprompter/releases)
 [![Tauri](https://img.shields.io/badge/Tauri-2.0-24C8D8?style=flat-square&logo=tauri&logoColor=white)](https://tauri.app)
 [![SvelteKit](https://img.shields.io/badge/SvelteKit-2.x-FF3E00?style=flat-square&logo=svelte&logoColor=white)](https://kit.svelte.dev)
-[![Platform](https://img.shields.io/badge/platform-macOS%20·%20Windows%20·%20Linux-555?style=flat-square)](#install)
-[![Homebrew](https://img.shields.io/badge/Homebrew-coming_soon-FBB040?style=flat-square&logo=homebrew&logoColor=white)](#install)
+[![Platform](https://img.shields.io/badge/platform-macOS%20·%20Windows%20·%20Linux-555?style=flat-square)](#التثبيت)
+[![Homebrew](https://img.shields.io/badge/Homebrew-قريباً-FBB040?style=flat-square&logo=homebrew&logoColor=white)](#التثبيت)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 
 </div>
 
 ---
 
-## What is this?
+## ما هذا التطبيق؟
 
-Arabic Teleprompter is a native desktop app for broadcasters, presenters, and content creators who work in Arabic. It treats RTL text, Arabic typography, and tashkeel (diacritics) as first-class concerns — not afterthoughts.
+التلقين العربي تطبيق سطح مكتب أصيل للمذيعين والمقدمين وصناع المحتوى الذين يعملون باللغة العربية. يتعامل التطبيق مع النص من اليمين إلى اليسار والخطوط العربية والتشكيل باعتبارها متطلبات أساسية — لا إضافات ثانوية.
 
-Write or import your script, configure your display settings, and roll. The text scrolls smoothly at exactly the pace you set. When you need a second screen for talent, open one with a single click.
+اكتب أو استورد نصك، اضبط إعدادات العرض، وابدأ البث. يتمرر النص بسلاسة بالسرعة التي تحددها. وحين تحتاج شاشة ثانية للمقدم، افتحها بنقرة واحدة.
 
 ---
 
-## Features
+## المميزات
 
-| | Feature | Description |
+| | الميزة | الوصف |
 |---|---|---|
-| ✍️ | **Rich Arabic editor** | Full formatting — bold, italic, underline, text color, highlight |
-| 🔤 | **4 Arabic typefaces** | Amiri · Cairo · Noto Naskh Arabic · Tajawal |
-| 🎚️ | **Live controls** | Adjust font size and scroll speed without leaving the teleprompter |
-| 🪞 | **Mirror mode** | Flip the display horizontally for reflective teleprompter glass setups |
-| 📺 | **Dual-screen output** | Open a dedicated full-screen display on a second monitor |
-| 📂 | **File import** | Drag and drop `.txt` or `.docx` files directly onto the window |
-| حركات | **Tashkeel toggle** | Show or hide diacritics during broadcast with one tap |
-| ↔️ | **Per-paragraph direction** | Mix RTL and LTR in the same script (for bilingual content) |
-| 📍 | **Reading guide** | Subtle line at eye level keeps the presenter anchored |
-| 💾 | **Session recovery** | Automatically restores scroll position if the app closes unexpectedly |
-| ⌨️ | **Keyboard shortcuts** | Full keyboard control during broadcast |
+| ✍️ | **محرر نصوص متكامل** | تنسيق كامل — غامق، مائل، تحته خط، لون النص، تظليل |
+| 🔤 | **٤ خطوط عربية** | أميري · القاهرة · نوتو نسخ · تجوال |
+| 🎚️ | **تحكم مباشر** | ضبط حجم الخط وسرعة التمرير دون مغادرة شاشة البث |
+| 🪞 | **وضع المرآة** | عكس الشاشة أفقياً لإعدادات الزجاج العاكس |
+| 📺 | **شاشة ثانية للمقدم** | فتح شاشة عرض كاملة على شاشة ثانية |
+| 📂 | **استيراد الملفات** | اسحب وأفلت ملفات `.txt` أو `.docx` مباشرة على النافذة |
+| حركات | **تبديل التشكيل** | إظهار أو إخفاء التشكيل أثناء البث بلمسة واحدة |
+| ↔️ | **اتجاه لكل فقرة** | دمج النصوص العربية والإنجليزية في نفس النص |
+| 📍 | **دليل القراءة** | خط دقيق عند مستوى العين لتثبيت نظر المقدم |
+| 💾 | **استعادة الجلسة** | يستعيد تلقائياً موضع التمرير عند إغلاق التطبيق بشكل مفاجئ |
+| ⌨️ | **اختصارات لوحة المفاتيح** | تحكم كامل بلوحة المفاتيح أثناء البث |
 
 ---
 
-## Screenshots
+## لقطات الشاشة
 
-> 📸 Screenshots coming soon. To contribute, see [`docs/screenshots/README.md`](docs/screenshots/README.md).
+> 📸 لقطات الشاشة قادمة قريباً. للمساهمة، راجع [`docs/screenshots/README.md`](docs/screenshots/README.md).
 
 ---
 
-## How to Use
+## كيفية الاستخدام
 
-### 1 · Write your script
+### ١ · اكتب نصك
 
-Open the app and type directly in the editor — or drag a `.txt` or `.docx` file onto the window to import it instantly.
+افتح التطبيق واكتب مباشرة في المحرر — أو اسحب ملف `.txt` أو `.docx` على النافذة لاستيراده فوراً.
 
-Use the formatting toolbar to mark up your script:
+استخدم شريط التنسيق لضبط النص:
 
-- **غ** Bold · **م** Italic · **خ** Underline
-- Text color and highlight — useful for marking cues, questions, or transitions
-- **فاصل** — insert a segment divider to mark scene or topic breaks
-- Direction toggle (← →) — switch individual paragraphs between RTL and LTR
+- **غ** غامق · **م** مائل · **خ** تحته خط
+- لون النص والتظليل — مفيد لتمييز الإشارات والأسئلة والانتقالات
+- **فاصل** — أدرج فاصلاً لتقسيم المشاهد أو المواضيع
+- تبديل الاتجاه (← →) — تحويل فقرات فردية بين RTL وLTR
 
-### 2 · Configure your display
+### ٢ · اضبط إعدادات العرض
 
-Click the **⚙** icon in the toolbar to open Settings:
+اضغط على أيقونة **⚙** في شريط الأدوات لفتح الإعدادات:
 
-| Setting | Range | Default |
+| الإعداد | النطاق | الافتراضي |
 |---|---|---|
-| Font size | 24 – 120 px | 56 px |
-| Scroll speed | 0.5 – 10 | 2 |
-| Font | Amiri / Cairo / Noto Naskh / Tajawal | Amiri |
-| Line height | 1.2 – 3.5 | 2.0 |
-| Margins | 2 – 25 % | 10 % |
-| Mirror mode | on / off | off |
-| Tashkeel | on / off | on |
+| حجم الخط | ٢٤ – ١٢٠ بكسل | ٥٦ بكسل |
+| سرعة التمرير | ٠٫٥ – ١٠ | ٢ |
+| الخط | أميري / القاهرة / نوتو نسخ / تجوال | أميري |
+| تباعد الأسطر | ١٫٢ – ٣٫٥ | ٢٫٠ |
+| الهوامش | ٢ – ٢٥٪ | ١٠٪ |
+| وضع المرآة | تشغيل / إيقاف | إيقاف |
+| التشكيل | تشغيل / إيقاف | تشغيل |
 
-Settings are saved automatically between sessions.
+تُحفظ الإعدادات تلقائياً بين الجلسات.
 
-### 3 · Go live
+### ٣ · ابدأ البث
 
-Press the **بث** button in the toolbar. The editor disappears and your script fills the screen.
+اضغط على زر **بث** في شريط الأدوات. يختفي المحرر وتملأ الشاشة نصك كاملاً.
 
-### 4 · Control during broadcast
+### ٤ · التحكم أثناء البث
 
-| Key | Action |
+| المفتاح | الإجراء |
 |---|---|
-| `Space` | Play / Pause |
-| `↑` / `↓` | Scroll up / down |
-| `Page Up` / `Page Down` | Jump by large step |
-| `+` / `−` | Increase / decrease speed |
-| `M` | Toggle mirror mode |
-| `Mouse wheel` | Manual scroll |
-| `Esc` | Return to editor |
+| `Space` | تشغيل / إيقاف مؤقت |
+| `↑` / `↓` | تمرير لأعلى / لأسفل |
+| `Page Up` / `Page Down` | قفز بخطوة كبيرة |
+| `+` / `−` | زيادة / تقليل السرعة |
+| `M` | تبديل وضع المرآة |
+| عجلة الماوس | تمرير يدوي |
+| `Esc` | العودة إلى المحرر |
 
-The control bar auto-hides after 5 seconds. Tap the pencil icon (bottom-left) to bring it back.
+يختفي شريط التحكم تلقائياً بعد ٥ ثوانٍ. اضغط على أيقونة القلم (أسفل اليسار) لإعادته.
 
-### 5 · Dual-screen setup
+### ٥ · إعداد الشاشة الثانية
 
-Click the **monitor icon** in the control bar. A full-screen window opens on your secondary display — clean text with no UI chrome. The presenter sees only the script; you keep controls on your primary screen.
+اضغط على **أيقونة الشاشة** في شريط التحكم. تفتح نافذة كاملة على شاشتك الثانية — نص نظيف بدون واجهة. المقدم يرى النص فقط؛ وتبقى أدوات التحكم على شاشتك الرئيسية.
 
 ---
 
-## Install
+## التثبيت
 
-### Pre-built releases
+### إصدارات جاهزة
 
-Download the latest installer for your platform from [**GitHub Releases**](https://github.com/HassanAlsheikh/ArabicTeleprompter/releases).
+حمّل أحدث إصدار لمنصتك من [**GitHub Releases**](https://github.com/HassanAlsheikh/ArabicTeleprompter/releases).
 
-| Platform | File |
+| المنصة | الملف |
 |---|---|
 | macOS | `.dmg` |
-| Windows | `.exe` (NSIS) or `.msi` |
-| Linux | `.deb`, `.AppImage`, or `.rpm` |
+| Windows | `.exe` (NSIS) أو `.msi` |
+| Linux | `.deb` أو `.AppImage` أو `.rpm` |
 
-### Homebrew (coming soon)
+### Homebrew (قريباً)
 
 ```bash
 brew install --cask arabic-teleprompter
 ```
 
-> Homebrew distribution is planned after the initial public release. Star the repo to be notified.
+> التوزيع عبر Homebrew مخطط بعد الإصدار العام الأول. أضف نجمة للمستودع لتصلك الإشعارات.
 
-### Build from source
+### البناء من المصدر
 
-See [Building from Source](#building-from-source) below.
+راجع [البناء من المصدر](#البناء-من-المصدر) أدناه.
 
 ---
 
-## Building from Source
+## البناء من المصدر
 
-Arabic Teleprompter is a [Tauri 2.0](https://tauri.app) app. You need a JavaScript runtime and Rust.
+التلقين العربي تطبيق [Tauri 2.0](https://tauri.app). تحتاج إلى بيئة JavaScript وRust.
 
-### Prerequisites
+### المتطلبات
 
-| Tool | Version | Install |
+| الأداة | الإصدار | التثبيت |
 |---|---|---|
-| Bun | 1.1 + | [bun.sh](https://bun.sh) |
-| — or pnpm | 9 + | `npm install -g pnpm` |
+| Bun | 1.1+ | [bun.sh](https://bun.sh) |
+| — أو pnpm | 9+ | `npm install -g pnpm` |
 | Rust | stable | [rustup.rs](https://rustup.rs) |
-| Tauri system deps | — | [tauri.app/start/prerequisites](https://tauri.app/start/prerequisites/) |
+| متطلبات Tauri | — | [tauri.app/start/prerequisites](https://tauri.app/start/prerequisites/) |
 
-On **macOS**, also install Xcode Command Line Tools:
+على **macOS**، ثبّت أيضاً Xcode Command Line Tools:
 
 ```bash
 xcode-select --install
 ```
 
-### Clone and install
+### استنساخ المستودع والتثبيت
 
 ```bash
 git clone https://github.com/HassanAlsheikh/ArabicTeleprompter.git
@@ -155,57 +155,57 @@ cd ArabicTeleprompter
 ```
 
 ```bash
-# with bun (recommended)
+# باستخدام Bun (موصى به)
 bun install
 
-# or with pnpm
+# أو باستخدام pnpm
 pnpm install
 ```
 
-### Run in development
+### تشغيل في وضع التطوير
 
 ```bash
-# with bun
+# باستخدام Bun
 bun run tauri dev
 
-# or with pnpm
+# أو باستخدام pnpm
 pnpm tauri dev
 ```
 
-This starts the Vite dev server on `localhost:1420` and opens the native desktop window with hot reload.
+يشغّل هذا خادم Vite على `localhost:1420` ويفتح نافذة التطبيق مع التحديث الفوري.
 
-### Build for distribution
+### البناء للتوزيع
 
 ```bash
-# with bun
+# باستخدام Bun
 bun run tauri build
 
-# or with pnpm
+# أو باستخدام pnpm
 pnpm tauri build
 ```
 
-Bundled outputs land in `src-tauri/target/release/bundle/`.
+تجد المخرجات في `src-tauri/target/release/bundle/`.
 
-The app is fully standalone — no server, no internet connection required at runtime.
-
----
-
-## Tech Stack
-
-- **[Tauri 2.0](https://tauri.app)** — Rust-powered native shell, tiny install footprint
-- **[SvelteKit 2](https://kit.svelte.dev) + [Svelte 5](https://svelte.dev)** — reactive UI with runes
-- **[TipTap 3](https://tiptap.dev)** — rich text editor with custom Arabic extensions
-- **[Vite 7](https://vitejs.dev)** — fast build tooling
-- **Arabic fonts** via [@fontsource](https://fontsource.org): Amiri, Cairo, Noto Naskh Arabic, Tajawal
+التطبيق مستقل بالكامل — لا يحتاج إلى خادم أو اتصال بالإنترنت وقت التشغيل.
 
 ---
 
-## Contributing
+## التقنيات المستخدمة
 
-Pull requests are welcome. For significant changes, open an issue first to discuss your approach.
+- **[Tauri 2.0](https://tauri.app)** — هيكل Rust أصيل بحجم تثبيت صغير
+- **[SvelteKit 2](https://kit.svelte.dev) + [Svelte 5](https://svelte.dev)** — واجهة تفاعلية برموز runes
+- **[TipTap 3](https://tiptap.dev)** — محرر نصوص غني مع إضافات عربية مخصصة
+- **[Vite 7](https://vitejs.dev)** — أدوات بناء سريعة
+- **خطوط عربية** عبر [@fontsource](https://fontsource.org): أميري، القاهرة، نوتو نسخ، تجوال
 
 ---
 
-## License
+## المساهمة
+
+نرحب بطلبات السحب. للتغييرات الجوهرية، افتح issue للنقاش أولاً.
+
+---
+
+## الرخصة
 
 MIT
