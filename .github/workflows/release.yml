@@ -12,7 +12,37 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    outputs:
+      release_id: ${{ steps.create.outputs.result }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create release with full notes
+        id: create
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '';
+            if (fs.existsSync('RELEASE_NOTES.md')) {
+              body = fs.readFileSync('RELEASE_NOTES.md', 'utf8');
+            }
+            const tag = context.ref.replace('refs/tags/', '');
+            const { data } = await github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: tag,
+              name: `التلقين العربي ${tag}`,
+              body: body,
+              draft: false,
+              prerelease: false,
+            });
+            return data.id;
+
   build:
+    needs: create-release
     strategy:
       fail-fast: false
       matrix:
@@ -67,8 +97,5 @@ jobs:
         with:
           tagName: ${{ github.ref_name }}
           releaseName: 'التلقين العربي ${{ github.ref_name }}'
-          releaseBody: |
-            اطّلع على ملاحظات الإصدار الكاملة في [RELEASE_NOTES.md](https://github.com/${{ github.repository }}/blob/main/RELEASE_NOTES.md)
-          releaseDraft: false
-          prerelease: false
+          releaseId: ${{ needs.create-release.outputs.release_id }}
           args: ${{ matrix.args }}
