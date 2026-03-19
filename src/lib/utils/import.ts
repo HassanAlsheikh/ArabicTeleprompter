@@ -1,3 +1,5 @@
+import DOMPurify from 'dompurify';
+
 function escapeHtml(text: string): string {
 	return text
 		.replace(/&/g, '&amp;')
@@ -27,7 +29,10 @@ export async function importDocx(file: File): Promise<string> {
 	const mammoth = (mammothModule as Record<string, unknown>).default ?? mammothModule;
 	const arrayBuffer = await file.arrayBuffer();
 	const result = await (mammoth as typeof mammothModule).convertToHtml({ arrayBuffer });
-	return result.value;
+	return DOMPurify.sanitize(result.value, {
+		ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'span', 'mark', 'sub', 'sup'],
+		ALLOWED_ATTR: ['dir', 'style', 'class']
+	});
 }
 
 export async function parseFile(file: File): Promise<string> {

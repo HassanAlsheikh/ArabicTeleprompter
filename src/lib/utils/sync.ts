@@ -12,6 +12,23 @@ export interface SyncState {
 	showTashkeel: boolean;
 }
 
+function isValidSyncState(data: unknown): data is SyncState {
+	if (data === null || typeof data !== 'object') return false;
+	const d = data as Record<string, unknown>;
+
+	if ('scrollPosition' in d && typeof d.scrollPosition !== 'number') return false;
+	if ('isPlaying' in d && typeof d.isPlaying !== 'boolean') return false;
+	if ('text' in d && typeof d.text !== 'string') return false;
+	if ('fontSize' in d && typeof d.fontSize !== 'number') return false;
+	if ('fontFamily' in d && typeof d.fontFamily !== 'string') return false;
+	if ('lineHeight' in d && typeof d.lineHeight !== 'number') return false;
+	if ('margins' in d && typeof d.margins !== 'number') return false;
+	if ('mirrorMode' in d && typeof d.mirrorMode !== 'boolean') return false;
+	if ('showTashkeel' in d && typeof d.showTashkeel !== 'boolean') return false;
+
+	return true;
+}
+
 let channel: BroadcastChannel | null = null;
 
 function getChannel(): BroadcastChannel {
@@ -33,7 +50,9 @@ export function onSyncMessage(callback: (state: SyncState) => void): () => void 
 	try {
 		const ch = getChannel();
 		if (!ch) return () => {};
-		const handler = (e: MessageEvent) => callback(e.data);
+		const handler = (e: MessageEvent) => {
+			if (isValidSyncState(e.data)) callback(e.data);
+		};
 		ch.addEventListener('message', handler);
 		return () => ch.removeEventListener('message', handler);
 	} catch {
