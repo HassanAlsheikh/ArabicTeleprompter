@@ -6,7 +6,7 @@
 
 **تلقين احترافي مبني للمحتوى العربي — عربي أصيل، جاهز للبث.**
 
-[![Version](https://img.shields.io/badge/version-0.5.0-blue?style=flat-square)](https://github.com/HassanAlsheikh/ArabicTeleprompter/releases)
+[![Version](https://img.shields.io/badge/version-0.5.0-blue?style=flat-square)](https://github.com/alsheikhmedia/ArabicTeleprompter/releases)
 [![Tauri](https://img.shields.io/badge/Tauri-2.0-24C8D8?style=flat-square&logo=tauri&logoColor=white)](https://tauri.app)
 [![SvelteKit](https://img.shields.io/badge/SvelteKit-2.x-FF3E00?style=flat-square&logo=svelte&logoColor=white)](https://kit.svelte.dev)
 [![Platform](https://img.shields.io/badge/platform-macOS%20·%20Windows%20·%20Linux-555?style=flat-square)](#التثبيت)
@@ -106,7 +106,7 @@
 
 ### إصدارات جاهزة
 
-حمّل أحدث إصدار لمنصتك من [**GitHub Releases**](https://github.com/HassanAlsheikh/ArabicTeleprompter/releases).
+حمّل أحدث إصدار لمنصتك من [**GitHub Releases**](https://github.com/alsheikhmedia/ArabicTeleprompter/releases).
 
 | المنصة | الملف |
 |---|---|
@@ -150,7 +150,7 @@ xcode-select --install
 ### استنساخ المستودع والتثبيت
 
 ```bash
-git clone https://github.com/HassanAlsheikh/ArabicTeleprompter.git
+git clone https://github.com/alsheikhmedia/ArabicTeleprompter.git
 cd ArabicTeleprompter
 ```
 
