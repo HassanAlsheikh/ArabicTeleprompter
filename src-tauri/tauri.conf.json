@@ -12,6 +12,7 @@
 	"app": {
 		"windows": [
 			{
+				"url": "/app",
 				"title": "التلقين العربي | Arabic Teleprompter",
 				"width": 1200,
 				"height": 800,
