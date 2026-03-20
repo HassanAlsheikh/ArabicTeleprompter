@@ -97,6 +97,8 @@
 			class:active={isBold}
 			onclick={() => editor.chain().focus().toggleBold().run()}
 			title="غامق (Ctrl+B)"
+			aria-label="غامق (Ctrl+B)"
+			aria-pressed={isBold}
 		>
 			<strong>غ</strong>
 		</button>
@@ -105,6 +107,8 @@
 			class:active={isItalic}
 			onclick={() => editor.chain().focus().toggleItalic().run()}
 			title="مائل (Ctrl+I)"
+			aria-label="مائل (Ctrl+I)"
+			aria-pressed={isItalic}
 		>
 			<em>م</em>
 		</button>
@@ -113,6 +117,8 @@
 			class:active={isUnderline}
 			onclick={() => editor.chain().focus().toggleUnderline().run()}
 			title="تحته خط (Ctrl+U)"
+			aria-label="تحته خط (Ctrl+U)"
+			aria-pressed={isUnderline}
 		>
 			<u>خ</u>
 		</button>
@@ -121,7 +127,7 @@
 	<div class="toolbar-sep"></div>
 
 	<div class="toolbar-group">
-		<label class="color-btn" title="لون النص" onmousedown={saveSelection}>
+		<label class="color-btn" title="لون النص" aria-label="لون النص" onmousedown={saveSelection}>
 			<span class="color-icon">
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
 					<path d="M5 21h14M12 3l-5 14h2.5l1.2-3.5h4.6L16.5 17H19L14 3h-4z" />
@@ -130,7 +136,7 @@
 			</span>
 			<input type="color" value={textColor} oninput={setColor} />
 		</label>
-		<label class="color-btn" title="تظليل" onmousedown={saveSelection}>
+		<label class="color-btn" title="تظليل" aria-label="تظليل" onmousedown={saveSelection}>
 			<span class="color-icon">
 				<svg viewBox="0 0 24 24" fill="none" width="24" height="24">
 					<rect x="2" y="14" width="20" height="7" rx="1" fill="currentColor" opacity="0.3" />
@@ -145,7 +151,7 @@
 	<div class="toolbar-sep"></div>
 
 	<div class="toolbar-group">
-		<button class="format-btn" onclick={toggleDirection} title="اتجاه النص">
+		<button class="format-btn" onclick={toggleDirection} title="اتجاه النص" aria-label="اتجاه النص">
 			{#if isRtl}
 				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
 					<path d="M21 12H3" />
@@ -163,7 +169,7 @@
 	<div class="toolbar-sep"></div>
 
 	<div class="toolbar-group">
-		<button class="format-btn" onclick={insertSegment} title="إدراج فاصل مقطع">
+		<button class="format-btn" onclick={insertSegment} title="إدراج فاصل مقطع" aria-label="إدراج فاصل مقطع">
 			فاصل
 		</button>
 	</div>

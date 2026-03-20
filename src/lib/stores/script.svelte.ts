@@ -1,5 +1,12 @@
+import DOMPurify from 'dompurify';
+
 const STORAGE_KEY = 'arabic-teleprompter-script';
 const CRASH_KEY = 'arabic-teleprompter-crash';
+
+const SANITIZE_CONFIG = {
+	ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'span', 'mark', 'sub', 'sup', 'div'],
+	ALLOWED_ATTR: ['dir', 'class', 'data-segment-marker']
+};
 
 const DEFAULT_HTML = `<p>بسم الله الرحمن الرحيم</p>
 <p></p>
@@ -46,7 +53,9 @@ export function saveScript(): void {
 				title: scriptStore.title
 			})
 		);
-	} catch {}
+	} catch (err) {
+		console.error('Failed to save script:', err);
+	}
 }
 
 export function loadScript(): void {
@@ -63,10 +72,12 @@ export function loadScript(): void {
 					.map((line: string) => (line.trim() === '' ? '<p></p>' : `<p>${line.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>`))
 					.join('');
 			}
-			scriptStore.text = data.text;
+			scriptStore.text = DOMPurify.sanitize(data.text, SANITIZE_CONFIG);
 		}
 		if (data.title != null) scriptStore.title = data.title;
-	} catch {}
+	} catch (err) {
+		console.error('Failed to load script:', err);
+	}
 }
 
 // --- Crash Recovery ---
@@ -90,7 +101,9 @@ export function saveCrashState(): void {
 				active: true
 			})
 		);
-	} catch {}
+	} catch (err) {
+		console.error('Failed to save crash state:', err);
+	}
 }
 
 export function loadCrashState(): CrashState | null {
@@ -101,7 +114,8 @@ export function loadCrashState(): CrashState | null {
 		const state: CrashState = JSON.parse(raw);
 		if (state.active) return state;
 		return null;
-	} catch {
+	} catch (err) {
+		console.error('Failed to load crash state:', err);
 		return null;
 	}
 }
@@ -115,5 +129,7 @@ export function clearCrashState(): void {
 			state.active = false;
 			localStorage.setItem(CRASH_KEY, JSON.stringify(state));
 		}
-	} catch {}
+	} catch (err) {
+		console.error('Failed to clear crash state:', err);
+	}
 }

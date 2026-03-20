@@ -1,9 +1,15 @@
 <script lang="ts">
+	import DOMPurify from 'dompurify';
 	import { settings, FONTS } from '$lib/stores/settings.svelte';
 	import { scriptStore } from '$lib/stores/script.svelte';
 	import { stripTashkeelFromHtml } from '$lib/utils/tashkeel';
 	import { broadcastState } from '$lib/utils/sync';
 	import Controls from './Controls.svelte';
+
+	const SANITIZE_CONFIG = {
+		ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'span', 'mark', 'sub', 'sup', 'div'],
+		ALLOWED_ATTR: ['dir', 'class', 'data-segment-marker']
+	};
 
 	let textEl: HTMLDivElement | undefined = $state();
 	let animationFrameId: number;
@@ -13,7 +19,10 @@
 
 	const fontConfig = $derived(FONTS.find((f) => f.name === settings.fontFamily));
 	const displayHtml = $derived(
-		settings.showTashkeel ? scriptStore.text : stripTashkeelFromHtml(scriptStore.text)
+		DOMPurify.sanitize(
+			settings.showTashkeel ? scriptStore.text : stripTashkeelFromHtml(scriptStore.text),
+			SANITIZE_CONFIG
+		)
 	);
 
 	function scrollLoop(timestamp: number) {
@@ -199,6 +208,7 @@
 			class="controls-toggle"
 			onclick={toggleControls}
 			title="إظهار لوحة التحكم"
+			aria-label="إظهار لوحة التحكم"
 		>
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22">
 				<path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />

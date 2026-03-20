@@ -43,8 +43,8 @@ export function saveSettings(): void {
 				showTashkeel: settings.showTashkeel
 			})
 		);
-	} catch {
-		// localStorage unavailable or full
+	} catch (err) {
+		console.error('Failed to save settings:', err);
 	}
 }
 
@@ -54,15 +54,15 @@ export function loadSettings(): void {
 		const raw = localStorage.getItem(STORAGE_KEY);
 		if (!raw) return;
 		const data = JSON.parse(raw);
-		if (data.fontSize != null) settings.fontSize = data.fontSize;
-		if (data.scrollSpeed != null) settings.scrollSpeed = data.scrollSpeed;
-		if (data.fontFamily != null) settings.fontFamily = data.fontFamily;
-		if (data.lineHeight != null) settings.lineHeight = data.lineHeight;
-		if (data.margins != null) settings.margins = data.margins;
-		if (data.highContrast != null) settings.highContrast = data.highContrast;
-		if (data.mirrorMode != null) settings.mirrorMode = data.mirrorMode;
-		if (data.showTashkeel != null) settings.showTashkeel = data.showTashkeel;
-	} catch {
-		// corrupted data, use defaults
+		if (typeof data.fontSize === 'number' && data.fontSize >= 12 && data.fontSize <= 200) settings.fontSize = data.fontSize;
+		if (typeof data.scrollSpeed === 'number' && data.scrollSpeed >= 0.5 && data.scrollSpeed <= 10) settings.scrollSpeed = data.scrollSpeed;
+		if (typeof data.fontFamily === 'string' && FONTS.some((f) => f.name === data.fontFamily)) settings.fontFamily = data.fontFamily;
+		if (typeof data.lineHeight === 'number' && data.lineHeight >= 0.5 && data.lineHeight <= 5) settings.lineHeight = data.lineHeight;
+		if (typeof data.margins === 'number' && data.margins >= 0 && data.margins <= 50) settings.margins = data.margins;
+		if (typeof data.highContrast === 'boolean') settings.highContrast = data.highContrast;
+		if (typeof data.mirrorMode === 'boolean') settings.mirrorMode = data.mirrorMode;
+		if (typeof data.showTashkeel === 'boolean') settings.showTashkeel = data.showTashkeel;
+	} catch (err) {
+		console.error('Failed to load settings:', err);
 	}
 }

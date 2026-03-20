@@ -16,13 +16,13 @@ export function isValidSyncState(data: unknown): data is SyncState {
 	if (data === null || typeof data !== 'object') return false;
 	const d = data as Record<string, unknown>;
 
-	if ('scrollPosition' in d && typeof d.scrollPosition !== 'number') return false;
+	if ('scrollPosition' in d && (typeof d.scrollPosition !== 'number' || !isFinite(d.scrollPosition as number) || (d.scrollPosition as number) < 0)) return false;
 	if ('isPlaying' in d && typeof d.isPlaying !== 'boolean') return false;
 	if ('text' in d && typeof d.text !== 'string') return false;
-	if ('fontSize' in d && typeof d.fontSize !== 'number') return false;
+	if ('fontSize' in d && (typeof d.fontSize !== 'number' || (d.fontSize as number) < 12 || (d.fontSize as number) > 200)) return false;
 	if ('fontFamily' in d && typeof d.fontFamily !== 'string') return false;
-	if ('lineHeight' in d && typeof d.lineHeight !== 'number') return false;
-	if ('margins' in d && typeof d.margins !== 'number') return false;
+	if ('lineHeight' in d && (typeof d.lineHeight !== 'number' || (d.lineHeight as number) < 0.5 || (d.lineHeight as number) > 5)) return false;
+	if ('margins' in d && (typeof d.margins !== 'number' || (d.margins as number) < 0 || (d.margins as number) > 50)) return false;
 	if ('mirrorMode' in d && typeof d.mirrorMode !== 'boolean') return false;
 	if ('showTashkeel' in d && typeof d.showTashkeel !== 'boolean') return false;
 

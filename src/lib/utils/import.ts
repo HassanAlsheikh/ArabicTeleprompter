@@ -31,11 +31,16 @@ export async function importDocx(file: File): Promise<string> {
 	const result = await (mammoth as typeof mammothModule).convertToHtml({ arrayBuffer });
 	return DOMPurify.sanitize(result.value, {
 		ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'span', 'mark', 'sub', 'sup'],
-		ALLOWED_ATTR: ['dir', 'style', 'class']
+		ALLOWED_ATTR: ['dir', 'class']
 	});
 }
 
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
+
 export async function parseFile(file: File): Promise<string> {
+	if (file.size > MAX_FILE_SIZE) {
+		throw new Error('حجم الملف يتجاوز الحد الأقصى (10 ميغابايت)');
+	}
 	const ext = file.name.split('.').pop()?.toLowerCase();
 	switch (ext) {
 		case 'docx':

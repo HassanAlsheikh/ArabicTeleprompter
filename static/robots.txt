@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /app
+Disallow: /talent
+
+Sitemap: https://arabicteleprompter.alsheikhmedia.com/sitemap.xml

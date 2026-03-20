@@ -25,7 +25,7 @@
 
 <div class="controls" dir="rtl">
 	<div class="controls-row">
-		<button class="btn-icon btn-back" onclick={exitToEditor} title="رجوع (Esc)">
+		<button class="btn-icon btn-back" onclick={exitToEditor} title="رجوع (Esc)" aria-label="رجوع (Esc)">
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 				<line x1="18" y1="6" x2="6" y2="18" />
 				<line x1="6" y1="6" x2="18" y2="18" />
@@ -36,6 +36,7 @@
 			class="btn-icon btn-play"
 			onclick={() => (scriptStore.isPlaying = !scriptStore.isPlaying)}
 			title={scriptStore.isPlaying ? 'إيقاف' : 'تشغيل'}
+			aria-label={scriptStore.isPlaying ? 'إيقاف' : 'تشغيل'}
 		>
 			{#if scriptStore.isPlaying}
 				<svg viewBox="0 0 24 24" fill="currentColor">
@@ -66,6 +67,8 @@
 			class:active={settings.mirrorMode}
 			onclick={() => (settings.mirrorMode = !settings.mirrorMode)}
 			title="وضع المرآة (M)"
+			aria-label="وضع المرآة (M)"
+			aria-pressed={settings.mirrorMode}
 		>
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 				<path d="M12 3v18" />
@@ -79,6 +82,8 @@
 			class:active={!settings.showTashkeel}
 			onclick={() => (settings.showTashkeel = !settings.showTashkeel)}
 			title="التشكيل"
+			aria-label="التشكيل"
+			aria-pressed={!settings.showTashkeel}
 		>
 			<span style="font-size: 1.4rem">{settings.showTashkeel ? 'شَكل' : 'شكل'}</span>
 		</button>
@@ -87,6 +92,7 @@
 			class="btn-icon btn-reset"
 			onclick={() => (scriptStore.scrollPosition = 0)}
 			title="البداية"
+			aria-label="البداية"
 		>
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 				<polyline points="1 4 1 10 7 10" />
@@ -94,7 +100,7 @@
 			</svg>
 		</button>
 
-		<button class="btn-icon" onclick={openTalentWindow} title="شاشة العرض">
+		<button class="btn-icon" onclick={openTalentWindow} title="شاشة العرض" aria-label="شاشة العرض">
 			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 				<rect x="2" y="3" width="20" height="14" rx="2" />
 				<line x1="8" y1="21" x2="16" y2="21" />

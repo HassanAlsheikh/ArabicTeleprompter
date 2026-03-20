@@ -3,7 +3,7 @@
 	--bg-secondary: #1a1a2e;
 	--bg-tertiary: #24243e;
 	--text-primary: #e0e0f0;
-	--text-secondary: #8080a0;
+	--text-secondary: #a8a8c0;
 	--accent: #4da6ff;
 	--accent-hover: #70b8ff;
 	--border: #2a2a44;
@@ -83,6 +83,14 @@ select {
 
 select:focus {
 	outline: 1px solid var(--accent);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
 }
 
 ::-webkit-scrollbar {

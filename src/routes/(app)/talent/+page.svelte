@@ -1,7 +1,13 @@
 <script lang="ts">
+	import DOMPurify from 'dompurify';
 	import { FONTS } from '$lib/stores/settings.svelte';
 	import { stripTashkeelFromHtml } from '$lib/utils/tashkeel';
 	import { onSyncMessage } from '$lib/utils/sync';
+
+	const SANITIZE_CONFIG = {
+		ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'span', 'mark', 'sub', 'sup', 'div'],
+		ALLOWED_ATTR: ['dir', 'class', 'data-segment-marker']
+	};
 
 	let scrollPosition = $state(0);
 	let text = $state('<p>في انتظار الاتصال بنافذة التحكم...</p>');
@@ -18,7 +24,7 @@
 	$effect(() => {
 		return onSyncMessage((state) => {
 			if (state.scrollPosition != null) scrollPosition = state.scrollPosition;
-			if (state.text != null) text = state.text;
+			if (state.text != null) text = DOMPurify.sanitize(state.text, SANITIZE_CONFIG);
 			if (state.fontSize != null) fontSize = state.fontSize;
 			if (state.fontFamily != null) fontFamily = state.fontFamily;
 			if (state.lineHeight != null) lineHeight = state.lineHeight;

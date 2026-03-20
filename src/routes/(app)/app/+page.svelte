@@ -102,8 +102,8 @@
 
 {#if showRecovery}
 	<div class="recovery-overlay">
-		<div class="recovery-dialog" dir="rtl">
-			<h3>استعادة الجلسة</h3>
+		<div class="recovery-dialog" dir="rtl" role="dialog" aria-labelledby="recovery-title">
+			<h3 id="recovery-title">استعادة الجلسة</h3>
 			<p>تم إغلاق التطبيق أثناء التلقين. هل تريد الاستكمال من حيث توقفت؟</p>
 			<div class="recovery-actions">
 				<button class="btn-primary" onclick={recoverSession}>نعم، استكمال</button>

@@ -63,4 +63,8 @@
 	});
 </script>
 
+<svelte:head>
+	<title>التلقين العربي | Arabic Teleprompter</title>
+</svelte:head>
+
 {@render children()}
