@@ -362,11 +362,15 @@
 		color: var(--text-primary);
 		overflow-x: hidden;
 		overflow-y: auto;
-		height: 100vh;
+		height: 100dvh;
 		scroll-behavior: smooth;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		line-height: 1.7;
+	}
+
+	@supports not (height: 100dvh) {
+		.landing { height: 100vh; }
 	}
 
 	h1, h2, h3 {
@@ -386,7 +390,7 @@
 
 	/* ===== HERO ===== */
 	.hero {
-		min-height: 100vh;
+		min-height: 100dvh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -394,6 +398,10 @@
 		padding: 80px 24px 60px;
 		text-align: center;
 		position: relative;
+	}
+
+	@supports not (min-height: 100dvh) {
+		.hero { min-height: 100vh; }
 	}
 
 	.hero::before {
@@ -614,14 +622,14 @@
 		text-align: center;
 		font-size: clamp(2rem, 4vw, 3rem);
 		font-weight: 700;
-		margin-bottom: 56px;
+		margin-bottom: 16px;
 		color: var(--text-primary);
 	}
 
 	.section-desc {
 		text-align: center;
 		max-width: 640px;
-		margin: -32px auto 56px;
+		margin: 0 auto 56px;
 		color: var(--text-secondary);
 		font-size: 1.05rem;
 		line-height: 1.8;
@@ -1040,6 +1048,14 @@
 	.reveal-delay-3 { transition-delay: 0.3s; }
 	.reveal-delay-4 { transition-delay: 0.35s; }
 
+	/* ===== REVEAL FALLBACK (JS blocked/failed) ===== */
+	@media (scripting: none) {
+		.reveal {
+			opacity: 1;
+			transform: none;
+		}
+	}
+
 	/* ===== RESPONSIVE ===== */
 	@media (max-width: 900px) {
 		.bento-grid {
@@ -1050,7 +1066,6 @@
 		}
 		.download-grid {
 			grid-template-columns: repeat(2, 1fr);
-			max-width: 500px;
 		}
 		.about-grid {
 			grid-template-columns: 1fr;
@@ -1059,6 +1074,14 @@
 		.footer-content {
 			flex-direction: column;
 			gap: 16px;
+		}
+		.footer-links {
+			gap: 16px;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.footer-links a {
+			padding: 8px 4px;
 		}
 	}
 
@@ -1069,12 +1092,22 @@
 		.bento-card.large {
 			grid-column: span 1;
 		}
+		.bento-card {
+			padding: 28px 20px;
+		}
+		.bento-card p {
+			font-size: 1rem;
+		}
 		.download-grid {
 			grid-template-columns: 1fr;
-			max-width: 320px;
+			max-width: 400px;
+		}
+		.download-card {
+			padding: 32px 20px;
 		}
 		.hero {
 			padding: 60px 20px 40px;
+			padding-top: calc(60px + env(safe-area-inset-top, 0px));
 		}
 		.app-mockup {
 			width: 95%;
@@ -1089,10 +1122,16 @@
 			flex-direction: column;
 			align-items: stretch;
 			width: 100%;
-			max-width: 320px;
+			max-width: 360px;
+		}
+		.oss-section .desc {
+			font-size: 1rem;
 		}
 		.oss-stats {
 			gap: 28px;
+		}
+		.section-desc {
+			font-size: 1rem;
 		}
 		.tech-inner {
 			gap: 8px;
@@ -1102,6 +1141,12 @@
 			text-align: center;
 			margin-left: 0;
 			margin-bottom: 8px;
+		}
+		.about-block p {
+			font-size: 1rem;
+		}
+		.footer {
+			padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px));
 		}
 	}
 
